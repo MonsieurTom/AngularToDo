@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/css/main.css">
-
+    <!--Getting the needed scripts-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
     <script src="js/myCore.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -17,6 +17,7 @@
     <meta charset="UTF-8">
     <title>Assignment04 - post todo</title>
 </head>
+<!-- Attaches a controller class to the view-->
 <body ng-controller="core">
     <!-- Start Navbar-->
     <div class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -25,8 +26,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!--ng-hide directive shows or hides the given HTML element based on the expression provided to the ngHide attribute.-->
             <ul class="navbar-nav ml-auto" ng-hide="showAccount">
                 <li class="nav-link">
+                    <!--The ngInit directive allows you to evaluate an expression in the current scope.-->
+                    <!--The ngClick directive allows you to specify custom behavior when an element is clicked.-->
                     <a class="nav-item" href="#" ng-init="showSignIn = false" ng-click="showSignIn = !showSignIn; showSignUp = false">Sign-in</a>
                 </li>
                 <li class="nav-link">
@@ -52,7 +56,8 @@
 
 
     <div class="container">
-        <!-- Start popup-forms -->
+        <!-- Defining the different popup forms -->
+        <!-- AddTask form -->
         <div ng-show="showAddTask" class="task-popup rounded bg-light">
             <div class="sign-in-error bg-danger rounded text-center" ng-show="addTaskError">
                 <p class="text-white"><b>{{error}}</b></p>
@@ -84,6 +89,7 @@
                 <button type="submit" class="btn btn-primary btn-lg" ng-click="createTask()">Add</button>
             </form>
         </div>
+        <!-- Signin popup forms -->
         <div ng-show="showSignIn" class="Sign-popup rounded bg-light">
             <div class="sign-in-error bg-danger rounded text-center" ng-show="signInError">
                 <p class="text-white"><b>{{error}}</b></p>
@@ -101,6 +107,7 @@
                 <button type="submit" class="btn btn-primary btn-lg" ng-click="signIn()">Sign-in</button>
             </form>
         </div>
+        <!-- Signup popup form -->
         <div ng-show="showSignUp" class="Sign-popup rounded bg-light">
             <div class="sign-up-error bg-danger rounded text-center" ng-show="signUpError">
                 <p class="text-white"><b>{{error}}</b></p>
@@ -125,7 +132,7 @@
         <!-- End forms -->
 
         <!-- Start display tasks -->
-        <!-- Loop over the posts inside of $scope.posts -->
+        <!-- Loop over the posts inside of $scope.posts with ng-repeat -->
         <div class="row" ng-repeat="post in posts" style="margin-top: 5px">
             <div class="card w-100">
                 <div class="card-body">

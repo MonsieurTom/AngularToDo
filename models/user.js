@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+var mongoose = require("mongoose"); //Importing mongoose
 var passportLocalMongoose = require("passport-local-mongoose");
 
 /* User schema for mongoDB (mongoose) */

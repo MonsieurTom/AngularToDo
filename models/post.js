@@ -1,6 +1,6 @@
-var mongoose = require("mongoose");
+var mongoose = require("mongoose");//Importing mongoose
 
-let postSchema = new mongoose.Schema({
+let postSchema = new mongoose.Schema({//We create a new Schema with the informations we want to store
    title: String,
    body: String,
    author: String,
@@ -11,4 +11,4 @@ let postSchema = new mongoose.Schema({
 });
 
 /* Allow to require the schema from my index.js */
-module.exports = mongoose.model('Post', postSchema);
+module.exports = mongoose.model('Post', postSchema);//adding the Schema we juste create to mongoDB models
